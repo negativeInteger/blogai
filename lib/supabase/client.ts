@@ -1,7 +1,25 @@
+import { useAuth } from "@clerk/nextjs";
 import { createClient } from "@supabase/supabase-js";
+import { useCallback } from "react";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
-const supabase = createClient(supabaseUrl, supabaseKey);
+export const useSupabase = () => {
+  const { getToken } = useAuth();
 
-export default supabase;
+  const getSupabaseClient = useCallback(async () => {
+    const token = await getToken({ template: "supabase" });
+
+    return createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      {
+        global: {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      }
+    );
+  }, [getToken]);
+
+  return { getSupabaseClient };
+};

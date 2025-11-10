@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { name: "Generate New", href: "/dashboard", icon: PenSquare },
-  { name: "History", href: "/dashboard/history", icon: History },
+  { name: "Saved", href: "/dashboard/saved-blogs", icon: History },
 ];
 
 export function Sidebar() {

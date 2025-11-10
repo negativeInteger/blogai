@@ -41,11 +41,11 @@ export default function HomePage() {
             desc: "AI crafts engaging, SEO-optimized blog posts tailored to your niche.",
           },
           {
-            title: "Instant Publishing",
+            title: "Save to Collection",
             desc: "Generate complete blog posts in seconds with one click.",
           },
           {
-            title: "Customizable Content",
+            title: "Customizable Outputs",
             desc: "Adjust tone, style, length, and target audience effortlessly.",
           },
         ].map((f) => (

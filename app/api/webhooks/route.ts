@@ -26,10 +26,6 @@ export async function POST(req: NextRequest) {
         console.error("Error inserting new profile:", error);
         return NextResponse.json({ error: error.message }, { status: 500 });
       }
-
-      console.log(
-        `✅ Created profile for user ${email_addresses[0]?.email_address}`,
-      );
     }
     return new Response("Webhook received", { status: 200 });
   } catch (err) {
