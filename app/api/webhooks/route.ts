@@ -1,6 +1,6 @@
 import { verifyWebhook } from "@clerk/nextjs/webhooks";
 import { type NextRequest, NextResponse } from "next/server";
-import supabase from "@/lib/supabase/client";
+import { createAdminClient } from "@/lib/supabase/server";
 
 export async function POST(req: NextRequest) {
   try {
@@ -11,6 +11,7 @@ export async function POST(req: NextRequest) {
     const eventType = evt.type;
 
     if (eventType === "user.created") {
+      const supabase = createAdminClient();
       const { email_addresses, first_name, last_name, id } = evt.data;
 
       const { error } = await supabase.from("profiles").insert([
