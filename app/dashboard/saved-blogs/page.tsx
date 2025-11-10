@@ -182,7 +182,7 @@ export default function SavedBlogsPage() {
         {savedBlogs.map((blog) => (
           <Card
             key={blog.id}
-            className="group hover:shadow-lg hover:shadow-blue-100 dark:hover:shadow-blue-900/20 transition-all duration-300 hover:-translate-y-1 border-0 shadow-md bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800"
+            className="group hover:shadow-lg hover:shadow-blue-100 dark:hover:shadow-blue-900/20 transition-all duration-300 hover:-translate-y-1 border-0 shadow-md bg-linear-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800"
           >
             {/* Card Header with Category Badge */}
             <CardHeader className="pb-3">

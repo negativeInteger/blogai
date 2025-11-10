@@ -21,6 +21,8 @@ export async function POST(request: Request) {
         return NextResponse.json({ message: "Blog post saved successfully" }, { status: 200 });
     } catch (error) {
         console.error("Error saving blog post:", error);
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        return NextResponse.json({ 
+            error: error instanceof Error ? error.message : "An unexpected error occurred" 
+        }, { status: 500 });
     }
 }
