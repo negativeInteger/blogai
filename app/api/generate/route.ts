@@ -37,7 +37,7 @@ CONTENT STRUCTURE:
 
 `
   const result = streamText({
-    model: google('gemini-2.5-pro'),
+    model: google('gemini-2.5-flash-lite'),
     system: systemPrompt,
     prompt: `Write a comprehensive blog post on ${userPrompt}`,
   });
